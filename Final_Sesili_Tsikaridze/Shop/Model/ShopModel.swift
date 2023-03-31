@@ -7,10 +7,16 @@
 
 import Foundation
 
+class CartManager {
+    static let shared = CartManager()
+    var cartItems: [CartItem] = []
+}
+
 struct CartItem {
     let product: ProductsData.Product
     var quantity: Int
 }
+
 
 struct ProductsData: Codable {
     

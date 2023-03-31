@@ -20,6 +20,7 @@
 		0B85189629CC6ED4006E39A7 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B85189529CC6ED4006E39A7 /* NetworkService.swift */; };
 		0BC4A22029D0BC50009B4D37 /* BasketTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC4A21F29D0BC50009B4D37 /* BasketTableViewCell.swift */; };
 		0BC4A22229D0BCCC009B4D37 /* BasketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC4A22129D0BCCC009B4D37 /* BasketViewController.swift */; };
+		0BCCBD7429D7669E009584E7 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCCBD7329D7669E009584E7 /* PaymentViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		0B85189529CC6ED4006E39A7 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		0BC4A21F29D0BC50009B4D37 /* BasketTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketTableViewCell.swift; sourceTree = "<group>"; };
 		0BC4A22129D0BCCC009B4D37 /* BasketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketViewController.swift; sourceTree = "<group>"; };
+		0BCCBD7329D7669E009584E7 /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 				0B05FBB529CB31EB00CEAA8E /* AppDelegate.swift */,
 				0B05FBB729CB31EB00CEAA8E /* SceneDelegate.swift */,
 				0B85189529CC6ED4006E39A7 /* NetworkService.swift */,
+				0BCCBD7229D76673009584E7 /* Payment */,
 				0BC4A21B29D0BBA6009B4D37 /* Basket */,
 				0B2D2E8B29CC561F00558D31 /* Shop */,
 				0B2D2E8329CC516D00558D31 /* LogIn */,
@@ -168,6 +171,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		0BCCBD7229D76673009584E7 /* Payment */ = {
+			isa = PBXGroup;
+			children = (
+				0BCCBD7329D7669E009584E7 /* PaymentViewController.swift */,
+			);
+			path = Payment;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -245,6 +256,7 @@
 				0B05FBBA29CB31EB00CEAA8E /* LogInViewController.swift in Sources */,
 				0B85189629CC6ED4006E39A7 /* NetworkService.swift in Sources */,
 				0B2D2E9429CC568F00558D31 /* ShopViewModel.swift in Sources */,
+				0BCCBD7429D7669E009584E7 /* PaymentViewController.swift in Sources */,
 				0B05FBB629CB31EB00CEAA8E /* AppDelegate.swift in Sources */,
 				0B2D2E9229CC568300558D31 /* ShopModel.swift in Sources */,
 				0B2D2E9629CC576700558D31 /* ShopTableViewCell.swift in Sources */,
