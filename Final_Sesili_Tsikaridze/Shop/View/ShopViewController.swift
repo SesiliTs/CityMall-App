@@ -13,9 +13,11 @@ class ShopViewController: UIViewController {
     @IBOutlet weak var amountLabel: UILabel!
     @IBOutlet weak var totalPrice: UILabel!
     
-//    var viewModel = ShopViewModel()
+    var amount = 0
+    var price = 0
     
     var products = [[ProductsData.Product]] ()
+    var cartItems: [CartItem] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,9 +37,7 @@ class ShopViewController: UIViewController {
             
             self.tableView.reloadData()
         }
-        
     }
-    
 }
 
 extension ShopViewController: UITableViewDataSource, UITableViewDelegate {
@@ -52,43 +52,33 @@ extension ShopViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ShopTableViewCell
+        let productSection = products[indexPath.section]
+        let currentProduct = productSection[indexPath.row]
+
+        cell.titleLabel.text = "\(currentProduct.title)"
+        cell.priceLabel.text = "price: \(currentProduct.price) $"
+        cell.stockLabel.text = "stock: \(currentProduct.stock)"
+        cell.shopImage.loadFrom(stringUrl: "\(currentProduct.thumbnail)")
+        cell.layer.borderColor = UIColor.systemGray5.cgColor
+        cell.layer.borderWidth = 1
+        cell.layer.cornerRadius = 16
         
-        if indexPath.section < products.count && indexPath.row < products[indexPath.section].count {let productSection = products[indexPath.section]
-            let currentProduct = productSection[indexPath.row]
-            cell.titleLabel.text = "\(currentProduct.title)"
-            cell.priceLabel.text = "price: \(currentProduct.price) $"
-            cell.stockLabel.text = "stock: \(currentProduct.stock)"
-            cell.shopImage.loadFrom(stringUrl: "\(currentProduct.images.first ?? "image")")
-            cell.layer.borderColor = UIColor.systemGray5.cgColor
-            cell.layer.borderWidth = 1
-            cell.layer.cornerRadius = 16
-            
-            //        cell.addAmountLabel.text = "\(currentPost.chosenAmount)"
-            //
-            //        cell.addAmountAction = {
-            //            currentPost.chosenAmount += 1
-            //            tableView.reloadData()
-            //            print(currentPost.chosenAmount)
-            //        }
-            //        cell.removeAmountAction = {
-            //            currentPost.chosenAmount -= 1
-            //            tableView.reloadData()
-            //        }
+        cell.addAmountLabel.text = "\(currentProduct.quantity)"
+        cell.addAmountAction = {
+            currentProduct.quantity += 1
+            tableView.reloadData()
         }
+        cell.removeAmountAction = {
+            currentProduct.quantity -= 1
+            tableView.reloadData()
+        }
+        
         return cell
     }
-        
-    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         140
     }
-    
-//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        let headerView = UIView()
-//        headerView.backgroundColor = UIColor.clear
-//        return headerView
-//    }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         products[section].first?.category
@@ -97,7 +87,6 @@ extension ShopViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
          50
      }
-    
 }
 
 extension UIImageView {

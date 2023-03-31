@@ -17,22 +17,15 @@ class ShopTableViewCell: UITableViewCell {
     
     var addAmountAction: (()->Void)?
     var removeAmountAction: (()->Void)?
+
     
     @IBAction func plusButton(_ sender: Any) {
-        
         addAmountAction?()
-        //        let intValue = Int(addAmountLabel.text!)
-        //        let newValue = intValue! + 1
-        //        addAmountLabel.text = "\(newValue)"
     }
+
     
     @IBAction func minusButton(_ sender: Any) {
-        
         removeAmountAction?()
-        //        if addAmountLabel.text != "0" {
-        //            let intValue = Int(addAmountLabel.text!)
-        //            let newValue = intValue! - 1
-        //            addAmountLabel.text = "\(newValue)"
     }
 }
 

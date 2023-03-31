@@ -10,6 +10,7 @@ import UIKit
 
 class ShopViewModel {
 
+    
 //var products = [ProductsData.Product]()
 //    var view: ShopViewController?
     

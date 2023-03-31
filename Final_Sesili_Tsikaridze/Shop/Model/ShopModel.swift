@@ -7,40 +7,42 @@
 
 import Foundation
 
+struct CartItem {
+    let product: ProductsData.Product
+    var quantity: Int
+}
+
 struct ProductsData: Codable {
     
     let products: [Product]
     
-    struct Product: Codable {
+    class Product: Codable {
         var id: Int
         var title: String
-        var description: String
         var price: Int
-        var discountPercentage: Float
-        var rating: Double
         var stock: Int
-        var brand: String
         var category: String
         var thumbnail: String
-        var images: [String]
-//        var chosenAmount: Int?
-
+        var quantity: Int
+        
+        enum CodingKeys: String, CodingKey {
+            case id
+            case title
+            case price
+            case stock
+            case category
+            case thumbnail
+        }
+        
+        required init(from decoder: Decoder) throws {
+            let container = try decoder.container(keyedBy: CodingKeys.self)
+            id = try container.decode(Int.self, forKey: .id)
+            title = try container.decode(String.self, forKey: .title)
+            price = try container.decode(Int.self, forKey: .price)
+            stock = try container.decode(Int.self, forKey: .stock)
+            category = try container.decode(String.self, forKey: .category)
+            thumbnail = try container.decode(String.self, forKey: .thumbnail)
+            quantity = 0
+        }
     }
-    
 }
-
-
-
-
-
-//id : 1
-//title : "iPhone 9"
-//description : "An apple mobile which is nothing like apple"
-//price : 549
-//discountPercentage : 12.96
-//rating : 4.69
-//stock : 94
-//brand : "Apple"
-//category : "smartphones"
-//thumbnail : "https://i.dummyjson.com/data/products/1/thumbnail.jpg"
-//images
